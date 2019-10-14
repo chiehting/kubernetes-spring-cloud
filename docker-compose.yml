@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+
+    webservice:
+        container_name: 'webservice'
+        image: spring-cloud-webservice
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '1024k'
+                max-file: '10'
+        ports:
+            - '80:80'
+        working_dir: /opt/src/
+
+#    config:
+#        container_name: 'config'
+#        image: spring-cloud-config-server
+#        logging:
+#            driver: 'json-file'
+#            options:
+#                max-size: '1024k'
+#                max-file: '10'
+#        ports:
+#            - '80:80'

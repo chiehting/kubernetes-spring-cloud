@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: webclient
+
+webservice:
+  name: http://webservice
