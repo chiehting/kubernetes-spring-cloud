@@ -1,8 +1,6 @@
 package com.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 @Controller
 public class HelloWebClientController {
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
     @Value("${webservice.name}")
     private String webservice_name;
 

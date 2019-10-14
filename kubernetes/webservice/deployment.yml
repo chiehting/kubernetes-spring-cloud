@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webservice
+  labels:
+    app: webservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webservice
+  template:
+    metadata:
+      labels:
+        app: webservice
+    spec:
+      containers:
+      - name: webservice
+        image: docker.io/library/webservice:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+

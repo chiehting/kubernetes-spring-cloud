@@ -8,7 +8,9 @@ spring:
     config:
       server:
         git:
-          uri: file://opt/src/git-repo
+          #uri: file://opt/src/git-repo
+          uri: https://github.com/ityouknow/spring-cloud-starter/
+          search-paths: config-repo
           username:
           password:
       label: master

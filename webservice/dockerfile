@@ -4,10 +4,12 @@ COPY ./ /opt/src/
 RUN mvn clean && mvn package
 
 FROM openjdk:8u201-jdk-alpine3.9 AS base
-RUN apk add --no-cache curl wget && mkdir -p /opt/src/target /opt/src/main
+WORKDIR /opt/src
+RUN apk add --no-cache curl wget \
+    && mkdir -p /opt/src/target /opt/src/main
 
 FROM base
 COPY --from=maven /opt/src/target/main.jar /opt/src/target
 COPY ./src/main/resources /opt/src/main/resources
-CMD ["java -jar /opt/src/target/main.jar --spring.config.location=file:///opt/src/main/resources/bootstrap.yml"]
+CMD ["java", "-jar", "target/main.jar", "--spring.config.location=file:///opt/src/main/resources/bootstrap.yml"]
 

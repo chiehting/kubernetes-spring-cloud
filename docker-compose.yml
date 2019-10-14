@@ -2,9 +2,9 @@ version: '3.7'
 
 services:
 
-    webservice:
-        container_name: 'webservice'
-        image: spring-cloud-webservice
+    webclient:
+        container_name: 'webclient'
+        image: webclient
         logging:
             driver: 'json-file'
             options:
@@ -12,15 +12,21 @@ services:
                 max-file: '10'
         ports:
             - '80:80'
-        working_dir: /opt/src/
 
-#    config:
-#        container_name: 'config'
-#        image: spring-cloud-config-server
-#        logging:
-#            driver: 'json-file'
-#            options:
-#                max-size: '1024k'
-#                max-file: '10'
-#        ports:
-#            - '80:80'
+    webservice:
+        container_name: 'webservice'
+        image: webservice
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '1024k'
+                max-file: '10'
+
+    config:
+        container_name: 'config'
+        image: config-server
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '1024k'
+                max-file: '10'
