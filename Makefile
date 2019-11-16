@@ -6,7 +6,7 @@ build-webclient: webclient/dockerfile ## build web client
 	$(call build, webclient, webclient)
 
 build-webservice: webservice/dockerfile ## build web service
-	$(call build, webservice, sebservice)
+	$(call build, webservice, webservice)
 
 build-config: config/dockerfile ## build config
 	$(call build, config-server, config)
